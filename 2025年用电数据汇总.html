@@ -153,6 +153,9 @@
   function fmt3(n) {
     return n.toLocaleString('zh-CN', {minimumFractionDigits:3, maximumFractionDigits:3});
   }
+  function fmt0(n) {
+    return Math.round(n).toLocaleString('zh-CN');
+  }
 
   function renderMonthPicker() {
     const picker = document.getElementById('monthPicker');
@@ -173,22 +176,22 @@
     document.getElementById('summaryCards').innerHTML = `
       <div class="card">
         <div class="card-label">峰段合计</div>
-        <div class="card-value card-feng num">${fmt3(data.feng)}</div>
+        <div class="card-value card-feng num">${fmt0(data.feng)}</div>
         <div class="card-pct">${data.fengPct.toFixed(2)}%</div>
       </div>
       <div class="card">
         <div class="card-label">平段合计</div>
-        <div class="card-value card-ping num">${fmt3(data.ping)}</div>
+        <div class="card-value card-ping num">${fmt0(data.ping)}</div>
         <div class="card-pct">${data.pingPct.toFixed(2)}%</div>
       </div>
       <div class="card">
         <div class="card-label">谷段合计</div>
-        <div class="card-value card-gu num">${fmt3(data.gu)}</div>
+        <div class="card-value card-gu num">${fmt0(data.gu)}</div>
         <div class="card-pct">${data.guPct.toFixed(2)}%</div>
       </div>
       <div class="card">
         <div class="card-label">月总用电量</div>
-        <div class="card-value card-total num">${fmt3(data.total)}</div>
+        <div class="card-value card-total num">${fmt0(data.total)}</div>
         <div class="card-pct">MWh</div>
       </div>
     `;
